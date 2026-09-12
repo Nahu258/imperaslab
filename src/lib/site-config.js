@@ -15,7 +15,7 @@ export const SITE = {
   locale: 'pt_BR',
   lang: 'pt-BR',
 
-  email: 'desk@imperaslab.com.br',
+  email: 'lxcasimpera@gmail.com',
   privacyEmail: 'privacidade@imperaslab.com.br',
   whatsappNumber: '5583991625590',
   whatsappDisplay: '(83) 99162-5590',
