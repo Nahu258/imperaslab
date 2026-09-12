@@ -6,7 +6,8 @@
 export const SITE = {
   url: 'https://imperaslab.com.br',
   name: "Impera's Lab",
-  legalName: "IMPERA'S LAB — ASSESSORIA DE ESTRUTURACAO DIGITAL LTDA.",
+  // legalName: "IMPERA'S LAB — ASSESSORIA DE ESTRUTURACAO DIGITAL LTDA.",
+  legalName: "IMPERA'S LAB",
   cnpj: '00.000.000/0001-00',
   title: "Impera's Lab • Assessoria de Estruturação Digital & Inteligência de Negócios",
   description:
