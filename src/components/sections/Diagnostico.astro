@@ -1,0 +1,96 @@
+---
+import { Icon } from 'astro-icon/components';
+import SectionHeading from '../SectionHeading.astro';
+
+const bottlenecks = [
+  {
+    tag: 'Gargalo #01',
+    icon: 'material-symbols:hourglass-bottom',
+    title: 'O Sufoco Operacional',
+    text: 'Sua equipe qualificada passa o dia respondendo manualmente mensagens repetitivas no WhatsApp em vez de fechar contratos de alto valor, negociar e executar a estratégia.',
+    footer: 'Dreno contínuo de produtividade & margem',
+    delay: 'reveal-delay-1',
+  },
+  {
+    tag: 'Gargalo #02',
+    icon: 'material-symbols:visibility-off',
+    title: 'A Cegueira de Dados',
+    text: 'Você até investe em tráfego pago, mas não compreende relatórios técnicos inflados e não faz a menor ideia de qual real colocado na mídia realmente virou faturamento no caixa.',
+    footer: 'Investimento às cegas sem rastreabilidade',
+    delay: 'reveal-delay-2',
+  },
+  {
+    tag: 'Gargalo #03',
+    icon: 'material-symbols:thumb-up',
+    title: 'A Ilusão do Impulsionar',
+    text: 'Posts bonitos e curtidas que inflam o ego com métricas de vaidade, mas geram zero previsibilidade de agendamentos reais e vendas concretas no final do mês.',
+    footer: 'Métricas de vaidade vs. conversão em caixa',
+    delay: 'reveal-delay-3',
+  },
+];
+---
+
+<section
+  id="diagnostico"
+  class="py-24 md:py-32 px-6 lg:px-10 bg-brand-deep border-y border-white/[0.05] relative"
+>
+  <div class="max-w-6xl mx-auto">
+    <SectionHeading
+      class="reveal mb-16"
+      eyebrow="Raio-X de Fricção Operacional"
+      icon="material-symbols:troubleshoot"
+      title="Sua Empresa Sofre com Alguns Destes Gargalos Invisíveis?"
+      description="A maioria dos líderes de negócios de alto padrão não sofre por falta de competência técnica, mas pelo dreno silencioso de energia operacional."
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+      {
+        bottlenecks.map((item) => (
+          <div
+            class={`reveal ${item.delay} glass-card rounded-2xl p-7 flex flex-col justify-between hover:bg-[#151724] hover:border-red-500/30 transition-all duration-300 group`}
+          >
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="font-display text-xs uppercase tracking-widest text-red-400 font-bold bg-red-500/10 border border-red-500/20 px-2.5 py-1 rounded">
+                  {item.tag}
+                </span>
+                <div class="w-10 h-10 rounded-lg bg-red-500/10 flex items-center justify-center text-red-400 group-hover:scale-110 transition-transform">
+                  <Icon name={item.icon} class="size-[22px]" />
+                </div>
+              </div>
+              <h3 class="font-display font-bold text-xl text-white mb-3">{item.title}</h3>
+              <p class="text-sm text-brand-muted leading-relaxed">{item.text}</p>
+            </div>
+            <div class="mt-8 pt-4 border-t border-white/[0.06] flex items-center gap-2 text-xs text-red-400/90 font-medium">
+              <Icon name="material-symbols:warning" class="size-4 shrink-0" />
+              <span>{item.footer}</span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="reveal reveal-delay-2 mt-12 glass-card rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 border-brand-lavender/25 bg-gradient-to-r from-[#171828] via-[#141524] to-[#171828]">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-brand-neon/15 border border-brand-neon/30 flex items-center justify-center text-brand-neon shrink-0">
+          <Icon name="material-symbols:verified" class="size-6" />
+        </div>
+        <div>
+          <div class="font-display font-bold text-lg sm:text-xl text-white">
+            Identificou o seu negócio em um destes pontos?
+          </div>
+          <p class="text-sm text-brand-muted">
+            Nós eliminamos exatamente essa fricção operacional com nossa arquitetura.
+          </p>
+        </div>
+      </div>
+      <a
+        class="px-6 py-3.5 rounded-xl bg-white text-brand-base hover:bg-brand-lavender font-display font-semibold text-sm flex items-center gap-2 transition-all duration-200 whitespace-nowrap shadow-lg"
+        href="#agendamento"
+      >
+        <span>Sanar Gargalos Agora</span>
+        <Icon name="material-symbols:arrow-forward" class="size-[18px]" />
+      </a>
+    </div>
+  </div>
+</section>

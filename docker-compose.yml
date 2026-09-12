@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  landing:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: imperaslab-landing
+    restart: always
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.landing.rule=Host(`imperaslab.com.br`) || Host(`www.imperaslab.com.br`)"
+      - "traefik.http.routers.landing.entrypoints=websecure"
+      - "traefik.http.routers.landing.tls=true"
+      - "traefik.http.routers.landing.tls.certresolver=letsencrypt"
+      - "traefik.http.services.landing.loadbalancer.server.port=80"

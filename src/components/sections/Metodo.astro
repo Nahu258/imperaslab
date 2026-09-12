@@ -1,0 +1,90 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const steps = [
+  {
+    number: '01',
+    icon: 'material-symbols:manage-search',
+    title: 'Diagnóstico Minucioso',
+    text: 'Raio-X completo do modelo de vendas, ticket médio, canais de contato e comportamento real da sua audiência compradora.',
+    delay: 'reveal-delay-1',
+  },
+  {
+    number: '02',
+    icon: 'material-symbols:account-tree',
+    title: 'Estruturação Técnica',
+    text: 'Desenho da espinha dorsal do ecossistema, mapeando cada ponto de contato, conexões lógicas e gatilhos de conversão.',
+    delay: 'reveal-delay-2',
+  },
+  {
+    number: '03',
+    icon: 'material-symbols:smart-toy',
+    title: 'Automação & Anúncios',
+    text: 'Implantação de tráfego de alta segmentação combinado com fluxos inteligentes de triagem e qualificação sem atrasos.',
+    delay: 'reveal-delay-1',
+  },
+  {
+    number: '04',
+    icon: 'material-symbols:monitoring',
+    title: 'Escala Previsível',
+    text: 'Monitoramento diário de lances, orçamentos, ROI e dados unificados em relatórios transparentes para tomada de decisão ágil.',
+    delay: 'reveal-delay-2',
+  },
+];
+---
+
+<section id="o-metodo-lab" class="py-24 md:py-32 px-6 lg:px-10 relative">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <div class="reveal lg:col-span-5 flex flex-col">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#1b1c2b] border border-brand-lavender/20 mb-4 w-fit">
+          <Icon name="material-symbols:biotech" class="size-4 text-brand-neon" />
+          <span class="font-display text-[11px] uppercase tracking-[0.16em] text-brand-lavender font-semibold">
+            A Filosofia do Laboratório
+          </span>
+        </div>
+
+        <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
+          Esqueça Fórmulas Engessadas.<br />
+          <span class="bg-gradient-to-r from-brand-lavender to-brand-neon bg-clip-text text-transparent">
+            Bem-vindo ao Lab.
+          </span>
+        </h2>
+
+        <p class="mt-5 text-sm sm:text-base text-brand-muted leading-relaxed">
+          Agências tradicionais tentam empurrar modelos padronizados de funis para realidades
+          corporativas únicas. No Impera's Lab, nós rejeitamos templates genéricos e criamos
+          “receitas solucionadoras” sob medida para a engrenagem do seu negócio.
+        </p>
+
+        <div class="mt-8 p-5 rounded-2xl bg-[#121420] border border-white/[0.08] flex items-start gap-4">
+          <Icon name="material-symbols:terminal" class="size-7 text-brand-neon mt-0.5 shrink-0" />
+          <div>
+            <div class="font-display font-bold text-base text-white">Engenharia Sob Demanda</div>
+            <p class="text-xs text-brand-dim mt-1.5 leading-relaxed">
+              Conectamos suas ferramentas já existentes (CRM, WhatsApp, Dashboards) sem obrigar sua
+              equipe a aprender softwares complexos e desnecessários.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5">
+        {
+          steps.map((step) => (
+            <div
+              class={`reveal ${step.delay} glass-card rounded-2xl p-6 hover:border-brand-lavender/40 transition-all duration-300`}
+            >
+              <div class="flex items-center justify-between mb-4">
+                <span class="font-display font-bold text-2xl text-brand-neon">{step.number}</span>
+                <Icon name={step.icon} class="size-[22px] text-brand-lavender/70" />
+              </div>
+              <h3 class="font-display font-bold text-lg text-white mb-2">{step.title}</h3>
+              <p class="text-xs text-brand-muted leading-relaxed">{step.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

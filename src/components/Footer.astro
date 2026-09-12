@@ -1,0 +1,93 @@
+---
+import { Icon } from 'astro-icon/components';
+import Logo from './Logo.astro';
+import { SITE, NAV_LINKS } from '../lib/site-config.js';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="w-full bg-brand-void border-t border-white/[0.06] pt-16 pb-12 px-6 lg:px-10">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/[0.06]">
+      <div class="flex flex-col gap-4">
+        <div class="h-10 w-auto flex items-center">
+          <Logo id="footer-logo" class="h-10 w-auto" />
+        </div>
+        <p class="text-xs text-brand-dim leading-relaxed">
+          Engenharia de autoridade e arquitetura de software para operações de alto ticket e escala
+          preditiva.
+        </p>
+        <div class="flex items-center gap-2 mt-1">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="font-display text-[10px] uppercase tracking-wider text-emerald-400">
+            Sistemas Operacionais • 99.9% Uptime
+          </span>
+        </div>
+      </div>
+
+      <div>
+        <span class="font-display text-xs uppercase tracking-widest text-brand-faint font-semibold block mb-4">
+          Navegação Estratégica
+        </span>
+        <div class="flex flex-col space-y-2 text-xs text-brand-muted">
+          {
+            NAV_LINKS.map((link) => (
+              <a class="hover:text-white transition-colors" href={link.href}>
+                {link.label}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <div>
+        <span class="font-display text-xs uppercase tracking-widest text-brand-faint font-semibold block mb-4">
+          Protocolos & Compliance
+        </span>
+        <div class="flex flex-col space-y-2 text-xs text-brand-muted">
+          <a class="hover:text-white transition-colors" href="/politica-de-privacidade">
+            Política de Privacidade
+          </a>
+          <a class="hover:text-white transition-colors" href="/termos-de-uso">Termos de Uso</a>
+          <a class="hover:text-white transition-colors" href="/politica-de-privacidade#seguranca">
+            Segurança da Informação
+          </a>
+          <a class="hover:text-white transition-colors" href="/#governanca">Governança Lab</a>
+        </div>
+      </div>
+
+      <div>
+        <span class="font-display text-xs uppercase tracking-widest text-brand-faint font-semibold block mb-4">
+          Canais Diretos
+        </span>
+        <div class="flex flex-col space-y-2 text-xs text-brand-muted">
+          <a class="text-white font-medium hover:text-brand-lavender transition-colors" href={`mailto:${SITE.email}`}>
+            {SITE.email}
+          </a>
+          <a
+            class="hover:text-white transition-colors"
+            href={`https://wa.me/${SITE.whatsappNumber}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WhatsApp {SITE.whatsappDisplay}
+          </a>
+          <span>{SITE.address}</span>
+          <div class="pt-2">
+            <a class="inline-flex items-center gap-1 text-xs text-brand-lavender hover:underline" href="/#agendamento">
+              <span>Acesso Executivo</span>
+              <Icon name="material-symbols:arrow-forward" class="size-3.5" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-brand-faint text-center sm:text-left">
+      <span>© {year} imperaslab.com.br. Todos os direitos reservados.</span>
+      <span class="font-display text-[10px] tracking-wider uppercase text-brand-lavender/60">
+        Impera's Lab Intelligence Hub
+      </span>
+    </div>
+  </div>
+</footer>

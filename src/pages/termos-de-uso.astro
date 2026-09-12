@@ -1,0 +1,181 @@
+---
+import LegalPage from '../layouts/LegalPage.astro';
+import { SITE } from '../lib/site-config.js';
+---
+
+<LegalPage
+  title={`Termos de Uso • ${SITE.name}`}
+  description="Termos e condições de uso do site da Impera's Lab: regras de utilização, propriedade intelectual, limitações de responsabilidade e foro aplicável."
+  eyebrow="Termos & Condições"
+  heading="Termos de Uso"
+  intro="Estes Termos regulam o acesso e a utilização do site da Impera's Lab e dos canais digitais associados. Ao navegar, preencher formulários ou entrar em contato conosco, você declara que leu, compreendeu e concorda integralmente com as condições abaixo."
+>
+  <h2 id="aceitacao">1. Aceitação dos Termos</h2>
+  <p>
+    Ao acessar <a href={SITE.url}>{SITE.url}</a> ou qualquer um de seus subdomínios, você concorda
+    com estes Termos de Uso e com a nossa
+    <a href="/politica-de-privacidade">Política de Privacidade</a>. Caso não concorde com qualquer
+    disposição, pedimos que não utilize o site.
+  </p>
+
+  <h2 id="identificacao">2. Identificação do prestador</h2>
+  <p>
+    Este site é mantido por <strong>{SITE.legalName}</strong>, CNPJ nº {SITE.cnpj}, com sede em
+    {SITE.address}. Contato oficial: <a href={`mailto:${SITE.email}`}>{SITE.email}</a> • WhatsApp
+    {SITE.whatsappDisplay}.
+  </p>
+
+  <h2 id="objeto">3. Objeto do site</h2>
+  <p>
+    Este site tem finalidade <strong>informativa e comercial</strong>: apresenta os serviços de
+    assessoria em estruturação digital, gestão de tráfego pago, automação de atendimento e
+    inteligência de dados da Impera's Lab, e permite o agendamento de uma sessão de diagnóstico.
+  </p>
+  <p>
+    O site <strong>não é uma loja virtual</strong> e não processa pagamentos. A contratação de
+    qualquer serviço ocorre exclusivamente por meio de proposta comercial e contrato específico,
+    firmados fora deste site.
+  </p>
+
+  <h2 id="uso">4. Condições de uso</h2>
+  <p>Ao utilizar este site, você se compromete a:</p>
+  <ul>
+    <li>Fornecer informações verdadeiras, exatas e atualizadas nos formulários;</li>
+    <li>Não utilizar o site para finalidades ilícitas, fraudulentas ou que violem direitos de terceiros;</li>
+    <li>
+      Não tentar obter acesso não autorizado a servidores, bancos de dados, APIs ou áreas restritas;
+    </li>
+    <li>
+      Não empregar robôs, scrapers, mecanismos automatizados de envio em massa ou qualquer técnica
+      que sobrecarregue a infraestrutura;
+    </li>
+    <li>
+      Não inserir código malicioso, vírus ou qualquer elemento capaz de comprometer o funcionamento
+      do site.
+    </li>
+  </ul>
+  <p>
+    O descumprimento destas regras pode resultar no bloqueio imediato do acesso, sem prejuízo das
+    medidas cíveis e criminais cabíveis.
+  </p>
+
+  <h2 id="formularios">5. Formulários e contato comercial</h2>
+  <p>
+    Ao enviar o formulário de diagnóstico, você autoriza expressamente que a Impera's Lab entre em
+    contato pelos dados informados (WhatsApp, e-mail ou telefone) para tratar da sua solicitação.
+  </p>
+  <ul>
+    <li>O envio do formulário <strong>não gera</strong> qualquer obrigação de contratação.</li>
+    <li>
+      A sessão de diagnóstico é gratuita, tem duração aproximada de 30 minutos e está sujeita à
+      disponibilidade de agenda.
+    </li>
+    <li>
+      Você pode solicitar o cancelamento do contato e a exclusão dos seus dados a qualquer momento,
+      conforme a <a href="/politica-de-privacidade#exclusao">Política de Privacidade</a>.
+    </li>
+  </ul>
+
+  <h2 id="propostas">6. Informações comerciais, preços e disponibilidade</h2>
+  <p>
+    Os planos apresentados neste site (Impera Boost, Impera Core e Impera Flow) descrevem escopos de
+    referência. Valores, prazos, entregáveis e condições são definidos individualmente em proposta
+    comercial, conforme a complexidade de cada operação.
+  </p>
+  <p>
+    Condições promocionais divulgadas no site são válidas apenas enquanto exibidas e podem ser
+    alteradas ou encerradas a qualquer momento, sem aviso prévio, sem afetar contratos já assinados.
+  </p>
+
+  <h2 id="resultados">7. Resultados, cases e expectativas</h2>
+  <p>
+    Os casos, métricas e depoimentos exibidos referem-se a resultados reais obtidos por clientes em
+    contextos específicos de mercado, verba, sazonalidade e maturidade operacional.
+  </p>
+  <p>
+    <strong>
+      Resultados passados não constituem garantia, promessa ou previsão de resultados futuros.
+    </strong>
+    O desempenho de campanhas e automações depende de fatores externos — concorrência, comportamento
+    das plataformas de anúncio, orçamento investido e a própria execução comercial do cliente — que
+    estão fora do controle exclusivo da Impera's Lab.
+  </p>
+
+  <h2 id="propriedade">8. Propriedade intelectual</h2>
+  <p>
+    Todo o conteúdo deste site — marca, logotipo, nome empresarial, textos, layout, identidade
+    visual, código-fonte, metodologias e materiais — é de titularidade da Impera's Lab ou licenciado
+    a ela, protegido pela Lei nº 9.610/1998 (Direitos Autorais) e pela Lei nº 9.279/1996
+    (Propriedade Industrial).
+  </p>
+  <p>
+    É vedada a reprodução, distribuição, modificação, engenharia reversa ou uso comercial de qualquer
+    elemento sem autorização prévia e por escrito. Marcas de terceiros eventualmente citadas
+    pertencem aos seus respectivos titulares.
+  </p>
+
+  <h2 id="terceiros">9. Serviços e links de terceiros</h2>
+  <p>
+    O site integra ou direciona para serviços de terceiros, como WhatsApp, Instagram, Facebook,
+    Google e provedores de automação. A Impera's Lab não controla esses serviços e não se
+    responsabiliza por sua disponibilidade, políticas ou conteúdos. O uso desses serviços é regido
+    pelos termos dos respectivos fornecedores.
+  </p>
+
+  <h2 id="disponibilidade">10. Disponibilidade e alterações do site</h2>
+  <p>
+    Empregamos esforços para manter o site disponível de forma contínua, mas ele pode ficar
+    temporariamente indisponível por manutenção, atualizações, falhas de terceiros ou eventos de
+    força maior. Reservamo-nos o direito de alterar, suspender ou descontinuar qualquer funcionalidade
+    a qualquer momento.
+  </p>
+
+  <h2 id="responsabilidade">11. Limitação de responsabilidade</h2>
+  <p>
+    Na máxima extensão permitida pela legislação brasileira, a Impera's Lab não se responsabiliza
+    por:
+  </p>
+  <ul>
+    <li>Decisões de negócio tomadas com base exclusivamente nas informações deste site;</li>
+    <li>Indisponibilidades, falhas ou mudanças de política das plataformas de terceiros;</li>
+    <li>
+      Danos indiretos, lucros cessantes ou perda de oportunidade decorrentes do uso ou da
+      impossibilidade de uso do site;
+    </li>
+    <li>Interrupções causadas por falhas de conexão, dispositivo ou provedor do usuário.</li>
+  </ul>
+  <p>
+    Esta limitação não afasta as responsabilidades assumidas em contratos de prestação de serviços
+    firmados com clientes, nem os direitos previstos no Código de Defesa do Consumidor quando
+    aplicável.
+  </p>
+
+  <h2 id="privacidade">12. Privacidade e proteção de dados</h2>
+  <p>
+    O tratamento de dados pessoais realizado por meio deste site está descrito na
+    <a href="/politica-de-privacidade">Política de Privacidade</a>, parte integrante e inseparável
+    destes Termos, elaborada em conformidade com a LGPD (Lei nº 13.709/2018).
+  </p>
+
+  <h2 id="alteracoes">13. Alterações destes Termos</h2>
+  <p>
+    Estes Termos podem ser atualizados a qualquer momento para refletir mudanças legais, técnicas ou
+    de negócio. A versão vigente é sempre a publicada nesta página, com a data de atualização
+    indicada no topo. O uso continuado do site após alterações implica concordância com a nova
+    versão.
+  </p>
+
+  <h2 id="foro">14. Legislação aplicável e foro</h2>
+  <p>
+    Estes Termos são regidos pelas leis da República Federativa do Brasil. Fica eleito o foro da
+    comarca da sede da Impera's Lab para dirimir quaisquer controvérsias, com renúncia a qualquer
+    outro, por mais privilegiado que seja, ressalvadas as hipóteses de competência legal diversa.
+  </p>
+
+  <h2 id="contato">15. Contato</h2>
+  <p>
+    Dúvidas sobre estes Termos podem ser encaminhadas para
+    <a href={`mailto:${SITE.email}`}>{SITE.email}</a> ou pelo WhatsApp
+    {SITE.whatsappDisplay}.
+  </p>
+</LegalPage>

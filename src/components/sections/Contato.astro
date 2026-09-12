@@ -1,0 +1,386 @@
+---
+import { Icon } from 'astro-icon/components';
+import { SITE, WHATSAPP_LINK } from '../../lib/site-config.js';
+
+const benefits = [
+  'Sem compromisso de contratação na sessão',
+  'Atendimento direto por um arquiteto sênior do Lab',
+  'Condição especial de setup isento válida durante a reunião',
+];
+
+const planos = [
+  { value: 'core', label: 'Impera Core (Mais Escolhido)' },
+  { value: 'boost', label: 'Impera Boost (Tráfego)' },
+  { value: 'flow', label: 'Impera Flow (Automações)' },
+  { value: 'avaliar', label: 'Ainda quero avaliar na call' },
+];
+---
+
+<section id="agendamento" class="py-24 md:py-32 px-6 lg:px-10 relative overflow-hidden">
+  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-96 radial-center-glow pointer-events-none -z-10"></div>
+
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div class="reveal lg:col-span-6 flex flex-col">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#1b1c2b] border border-brand-lavender/20 mb-4 w-fit">
+          <Icon name="material-symbols:headset-mic" class="size-4 text-brand-neon" />
+          <span class="font-display text-[11px] uppercase tracking-[0.16em] text-brand-lavender font-semibold">
+            Acesso Direto ao Board
+          </span>
+        </div>
+
+        <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
+          Pronto para Transformar seu Operacional em uma Máquina de Escala?
+        </h2>
+
+        <p class="mt-6 text-sm sm:text-base text-brand-muted leading-relaxed">
+          Reserve sua sessão executiva de diagnóstico gratuita (30 minutos). Analisaremos o seu fluxo
+          atual, identificaremos gargalos de resposta e entregaremos um mapa claro de implementação.
+        </p>
+
+        <div class="mt-8 space-y-3.5 text-sm text-white">
+          {
+            benefits.map((benefit) => (
+              <div class="flex items-center gap-3">
+                <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                  <Icon name="material-symbols:check" class="size-3.5" />
+                </span>
+                <span>{benefit}</span>
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="mt-8 pt-8 border-t border-white/[0.07] flex flex-col sm:flex-row gap-4 text-sm">
+          <a
+            class="inline-flex items-center gap-2 text-brand-lavender hover:text-white transition-colors"
+            href={`mailto:${SITE.email}`}
+          >
+            <Icon name="material-symbols:mail" class="size-[18px]" />
+            {SITE.email}
+          </a>
+          <a
+            class="inline-flex items-center gap-2 text-brand-lavender hover:text-white transition-colors"
+            href={WHATSAPP_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Icon name="material-symbols:chat" class="size-[18px]" />
+            {SITE.whatsappDisplay}
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2 lg:col-span-6 glass-card-featured rounded-3xl p-6 sm:p-10 shadow-2xl">
+        <div class="flex items-start justify-between gap-4 mb-6">
+          <div>
+            <span class="font-display font-bold text-xl text-white block">
+              Inicie seu Diagnóstico
+            </span>
+            <span class="text-xs text-brand-dim">
+              Preencha os dados e fale diretamente com um arquiteto sênior do Lab.
+            </span>
+          </div>
+          <span class="flex h-3 w-3 relative mt-1.5 shrink-0">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+          </span>
+        </div>
+
+        <form id="lead-form" class="space-y-4" novalidate>
+          <!-- honeypot anti-spam: invisivel para humanos -->
+          <div class="absolute w-px h-px overflow-hidden -left-[9999px]" aria-hidden="true">
+            <label for="website">Não preencha este campo</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div>
+            <label class="field-label" for="nome">Nome Completo</label>
+            <input
+              class="field-input"
+              id="nome"
+              name="nome"
+              type="text"
+              autocomplete="name"
+              placeholder="Ex: Roberto Silva"
+              required
+            />
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="field-label" for="whatsapp">WhatsApp Corporativo</label>
+              <input
+                class="field-input"
+                id="whatsapp"
+                name="whatsapp"
+                type="tel"
+                inputmode="tel"
+                autocomplete="tel"
+                placeholder="(83) 99999-9999"
+                required
+              />
+            </div>
+            <div>
+              <label class="field-label" for="email">E-mail</label>
+              <input
+                class="field-input"
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="voce@empresa.com.br"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="field-label" for="empresa">Segmento / Empresa</label>
+              <input
+                class="field-input"
+                id="empresa"
+                name="empresa"
+                type="text"
+                autocomplete="organization"
+                placeholder="Ex: Clínica / Arquitetura"
+                required
+              />
+            </div>
+            <div>
+              <label class="field-label" for="plano">Plano de Interesse</label>
+              <select class="field-input" id="plano" name="plano">
+                {planos.map((plano) => <option value={plano.value}>{plano.label}</option>)}
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="field-label" for="mensagem">
+              Principal gargalo hoje <span class="normal-case tracking-normal text-brand-faint">(opcional)</span>
+            </label>
+            <textarea
+              class="field-input h-auto py-3 resize-y min-h-24"
+              id="mensagem"
+              name="mensagem"
+              rows="3"
+              maxlength="1000"
+              placeholder="Conte em uma frase o que mais trava sua operação hoje."></textarea>
+          </div>
+
+          <label class="flex items-start gap-3 text-[11px] text-brand-dim leading-relaxed cursor-pointer">
+            <input
+              class="mt-0.5 size-4 shrink-0 rounded border border-white/20 bg-[#0a0b10] accent-[#7c5cfc]"
+              id="consentimento"
+              name="consentimento"
+              type="checkbox"
+              required
+            />
+            <span>
+              Autorizo o contato da Impera's Lab pelos dados informados e declaro ter lido a
+              <a class="text-brand-lavender underline underline-offset-2" href="/politica-de-privacidade">
+                Política de Privacidade
+              </a>.
+            </span>
+          </label>
+
+          <p
+            id="form-error"
+            class="hidden text-xs text-red-400 bg-red-500/10 border border-red-500/25 rounded-lg px-3 py-2.5"
+            role="alert"
+          >
+          </p>
+
+          <button
+            class="w-full py-4 mt-1 rounded-xl cta-gradient hover:brightness-110 text-white font-display font-semibold text-sm flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(124,92,252,0.4)] transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+            id="lead-submit"
+            type="submit"
+          >
+            <span id="lead-submit-label">Solicitar Diagnóstico Gratuito</span>
+            <Icon name="material-symbols:arrow-forward" class="size-[18px]" id="lead-submit-icon" />
+            <svg
+              id="lead-spinner"
+              class="hidden size-[18px] animate-spin"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="3" opacity="0.25"
+              ></circle>
+              <path
+                d="M21 12a9 9 0 0 0-9-9"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"></path>
+            </svg>
+          </button>
+        </form>
+
+        <!-- Estado de sucesso -->
+        <div id="lead-success" class="hidden text-center py-6">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-5">
+            <Icon name="material-symbols:check-circle" class="size-9" />
+          </div>
+          <h3 class="font-display font-bold text-2xl text-white mb-2">Solicitação recebida!</h3>
+          <p class="text-sm text-brand-muted leading-relaxed max-w-sm mx-auto">
+            Seus dados chegaram ao Lab. Um arquiteto sênior entrará em contato em até 1 dia útil.
+            Quer adiantar? Fale agora mesmo no WhatsApp.
+          </p>
+          <a
+            id="lead-success-whatsapp"
+            class="mt-6 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl cta-gradient hover:brightness-110 text-white font-display font-semibold text-sm shadow-[0_0_25px_rgba(124,92,252,0.4)] transition-all"
+            href={WHATSAPP_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Icon name="material-symbols:chat" class="size-[18px]" />
+            Continuar no WhatsApp
+          </a>
+        </div>
+
+        <div class="mt-4 text-center">
+          <span class="text-[11px] text-brand-faint inline-flex items-center justify-center gap-1">
+            <Icon name="material-symbols:lock" class="size-3.5" />
+            Conexão segura • Seus dados são tratados conforme a LGPD.
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ ENDPOINT: SITE.leadEndpoint, FALLBACK: SITE.leadWebhook, WA: WHATSAPP_LINK }}>
+  const form = document.getElementById('lead-form');
+  const errorBox = document.getElementById('form-error');
+  const submitBtn = document.getElementById('lead-submit');
+  const submitLabel = document.getElementById('lead-submit-label');
+  const submitIcon = document.getElementById('lead-submit-icon');
+  const spinner = document.getElementById('lead-spinner');
+  const successBox = document.getElementById('lead-success');
+  const waLink = document.getElementById('lead-success-whatsapp');
+  const phoneInput = document.getElementById('whatsapp');
+
+  /** Mascara (99) 99999-9999 */
+  phoneInput?.addEventListener('input', () => {
+    const digits = phoneInput.value.replace(/\D/g, '').slice(0, 11);
+    let masked = digits;
+    if (digits.length > 2) masked = `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+    if (digits.length > 7) {
+      const rest = digits.slice(2);
+      // celular: DDD + 9 digitos -> (83) 99162-5590 | fixo: DDD + 8 -> (83) 3216-5590
+      const split = rest.length > 8 ? 5 : 4;
+      masked = `(${digits.slice(0, 2)}) ${rest.slice(0, split)}-${rest.slice(split)}`;
+    }
+    phoneInput.value = masked;
+  });
+
+  const showError = (message) => {
+    if (!errorBox) return;
+    errorBox.textContent = message;
+    errorBox.classList.remove('hidden');
+  };
+
+  const hideError = () => errorBox?.classList.add('hidden');
+
+  const setLoading = (loading) => {
+    if (!submitBtn) return;
+    submitBtn.disabled = loading;
+    submitLabel.textContent = loading ? 'Enviando...' : 'Solicitar Diagnóstico Gratuito';
+    submitIcon?.classList.toggle('hidden', loading);
+    spinner?.classList.toggle('hidden', !loading);
+  };
+
+  const collectUtm = () => {
+    const params = new URLSearchParams(window.location.search);
+    const utm = {};
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'fbclid'].forEach(
+      (key) => {
+        const value = params.get(key);
+        if (value) utm[key] = value;
+      },
+    );
+    return utm;
+  };
+
+  const post = async (url, payload) =>
+    fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    hideError();
+
+    // Honeypot preenchido -> bot. Finge sucesso e nao envia nada.
+    if (form.website.value.trim() !== '') {
+      form.classList.add('hidden');
+      successBox?.classList.remove('hidden');
+      return;
+    }
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const nome = form.nome.value.trim();
+    const whatsapp = form.whatsapp.value.trim();
+    const digits = whatsapp.replace(/\D/g, '');
+
+    if (digits.length < 10) {
+      showError('Informe um WhatsApp válido com DDD, ex.: (83) 99162-5590.');
+      form.whatsapp.focus();
+      return;
+    }
+
+    const payload = {
+      nome,
+      whatsapp,
+      whatsapp_e164: `+55${digits}`,
+      email: form.email.value.trim(),
+      empresa: form.empresa.value.trim(),
+      plano: form.plano.value,
+      plano_label: form.plano.options[form.plano.selectedIndex]?.text ?? '',
+      mensagem: form.mensagem.value.trim(),
+      consentimento: form.consentimento.checked,
+      origem: 'landing-imperaslab',
+      pagina: window.location.pathname,
+      url: window.location.href,
+      referrer: document.referrer || null,
+      utm: collectUtm(),
+      user_agent: navigator.userAgent,
+      enviado_em: new Date().toISOString(),
+    };
+
+    setLoading(true);
+
+    try {
+      let response = await post(ENDPOINT, payload);
+
+      // Se o proxy de mesma origem nao existir, tenta o webhook direto.
+      if (response.status === 404 || response.status === 405 || response.status === 502) {
+        response = await post(FALLBACK, payload);
+      }
+
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+      if (waLink) {
+        const message = `Olá! Sou ${nome} e acabei de solicitar um Diagnóstico Estratégico na Impera's Lab.`;
+        waLink.href = `${WA.split('?')[0]}?text=${encodeURIComponent(message)}`;
+      }
+
+      form.classList.add('hidden');
+      successBox?.classList.remove('hidden');
+      successBox?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } catch (error) {
+      console.error('Falha ao enviar lead:', error);
+      setLoading(false);
+      showError(
+        'Não foi possível enviar agora. Tente novamente em instantes ou fale direto no WhatsApp (83) 99162-5590.',
+      );
+    }
+  });
+</script>

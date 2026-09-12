@@ -1,0 +1,209 @@
+---
+import { Icon } from 'astro-icon/components';
+import SectionHeading from '../SectionHeading.astro';
+
+const boost = {
+  eyebrow: 'Demanda Contínua',
+  name: 'IMPERA BOOST',
+  summary: 'Gestão estratégica de tráfego pago para atração ininterrupta de leads qualificados.',
+  price: 'Estrutura Sob Medida',
+  priceCaption: 'Alinhamento de verba e escopo no diagnóstico',
+  includes: [
+    'Diagnóstico inicial de audiência e concorrentes',
+    'Planejamento e alocação estratégica de verba',
+    'Configuração técnica de pixels, tags e tracking',
+    'Testes contínuos de criativos e públicos',
+    'Otimização diária de lances e orçamentos',
+    'Relatório executivo mensal e reunião periódica',
+  ],
+  excludes: [
+    'Verba de anúncios paga diretamente às plataformas',
+    'Edição de vídeos brutos',
+    'Atendimento comercial manual de leads',
+  ],
+  cta: 'Agendar Diagnóstico do Plano',
+  value: 'boost',
+  delay: 'reveal-delay-1',
+  order: 'lg:order-1',
+};
+
+const flow = {
+  eyebrow: 'Eficiência de Atendimento',
+  name: 'IMPERA FLOW',
+  summary:
+    'Engenharia de processos inteligentes de atendimento e automação para destravar a equipe.',
+  price: 'Consulte Condições',
+  priceCaption: 'Dimensionamento conforme volume de processos',
+  includes: [
+    'Implantação de automações de atendimento inteligente',
+    'Integração de ferramentas, WhatsApp e bases de dados',
+    'Testes simulados em ambiente pré-produção',
+    'Garantia operacional de 30 dias para estabilização',
+    'Monitoramento preventivo de tráfego de dados estável',
+  ],
+  excludes: [
+    'Custos de servidores/APIs de terceiros (Typebot, Evolution, Make)',
+    'Criação e gestão de anúncios pagos',
+  ],
+  cta: 'Solicitar Proposta',
+  value: 'flow',
+  delay: 'reveal-delay-3',
+  order: 'lg:order-3',
+};
+
+const sidePlans = [boost, flow];
+
+const coreIncludes = [
+  'Tráfego Turbo com otimização contínua de campanhas',
+  'Engenharia completa de automações de atendimento 24/7',
+  'Integração ponta a ponta (Anúncios → Lead → CRM → Agendamento)',
+  'Suporte prioritário executivo no canal do Lab',
+  'Garantia operacional de 30 dias pós-lançamento da arquitetura',
+];
+---
+
+<section
+  id="planos"
+  class="py-24 md:py-32 px-6 lg:px-10 bg-brand-deep border-y border-white/[0.05] relative"
+>
+  <div class="max-w-6xl mx-auto">
+    <SectionHeading
+      class="reveal mb-16"
+      eyebrow="Planos & Investimento Transparente"
+      icon="material-symbols:payments"
+      title="Arquitetura Sob Medida para o Momento da Sua Empresa"
+      description="Sem cláusulas obscuras, sem pegadinhas contratuais. Escolha a intensidade de tração que seu negócio precisa hoje."
+    />
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+      {
+        sidePlans.map((plan, index) => (
+          <div
+            class={`reveal ${plan.delay} ${plan.order} glass-card rounded-2xl p-7 sm:p-8 flex flex-col justify-between hover:border-white/20 transition-all duration-300`}
+          >
+            <div>
+              <span class="font-display text-xs uppercase tracking-widest text-brand-muted font-semibold block mb-1">
+                {plan.eyebrow}
+              </span>
+              <h3 class="font-display font-bold text-2xl text-white">{plan.name}</h3>
+              <p class="text-xs text-brand-dim mt-1.5">{plan.summary}</p>
+
+              <div class="my-6 p-4 rounded-xl bg-brand-base border border-white/[0.06]">
+                <span class="text-xs text-[#787c94] block">Modelo de Investimento</span>
+                <div class="font-display font-bold text-2xl text-white mt-1">{plan.price}</div>
+                <span class="text-[11px] text-brand-dim mt-1 block">{plan.priceCaption}</span>
+              </div>
+
+              <div class="space-y-2.5 text-xs text-[#c4c7d6]">
+                {plan.includes.map((item) => (
+                  <div class="flex items-start gap-2.5">
+                    <Icon
+                      name="material-symbols:check-circle"
+                      class="size-[18px] text-emerald-400 shrink-0 mt-0.5"
+                    />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div class="mt-6 pt-5 border-t border-white/[0.06] space-y-1.5 text-[11px] text-[#787c94]">
+                <span class="font-display uppercase tracking-wider font-semibold block text-brand-dim mb-1">
+                  Escopo Transparente:
+                </span>
+                {plan.excludes.map((item) => (
+                  <div class="flex items-start gap-2">
+                    <Icon name="material-symbols:remove" class="size-[15px] shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div class="mt-8">
+              <a
+                class="w-full py-3.5 rounded-xl bg-[#1a1c2b] hover:bg-[#25283d] text-white font-display font-semibold text-sm flex items-center justify-center transition-colors border border-white/10"
+                href="#agendamento"
+                data-plano={plan.value}
+              >
+                {plan.cta}
+              </a>
+            </div>
+          </div>
+        ))
+      }
+
+      <!-- CORE (destaque) -->
+      <div class="reveal reveal-delay-2 lg:order-2 glass-card-featured rounded-2xl p-7 sm:p-8 flex flex-col justify-between relative lg:-translate-y-4 shadow-2xl">
+        <div>
+          <div class="flex items-center justify-between gap-3 mb-2">
+            <span class="font-display text-xs uppercase tracking-widest text-brand-lavender font-semibold">
+              Ecossistema Completo
+            </span>
+            <span class="px-2.5 py-1 rounded bg-brand-purple/20 border border-brand-neon/40 text-brand-lavender font-display text-[10px] font-bold uppercase tracking-wider whitespace-nowrap">
+              Mais Escolhido
+            </span>
+          </div>
+
+          <h3 class="font-display font-bold text-3xl text-white">IMPERA CORE</h3>
+          <p class="text-xs text-[#a5a9bf] mt-1.5">
+            A união definitiva entre atração agressiva e blindagem operacional de lucros.
+          </p>
+
+          <div class="my-6 p-4 rounded-xl bg-[#0e0f18] border border-brand-neon/30">
+            <div class="flex items-center justify-between text-xs text-[#787c94]">
+              <span>Investimento Estratégico:</span>
+              <span class="text-brand-lavender font-medium">Proposta Personalizada</span>
+            </div>
+            <div class="font-display font-bold text-3xl text-white mt-1">Sob Consulta</div>
+            <div class="mt-2.5 inline-flex items-center gap-1.5 px-2 py-1 rounded bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 font-display text-[11px] font-bold uppercase tracking-wide">
+              <Icon name="material-symbols:verified" class="size-3.5" />
+              <span>Condições especiais em reunião executiva</span>
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-[#1a182e]/80 border border-brand-lavender/20 mb-5">
+            <p class="text-xs text-brand-lavender italic leading-relaxed">
+              “Se o sistema salvar apenas 2 a 3 vendas que seriam perdidas pela lentidão de resposta
+              no mês, o plano se paga sozinho.”
+            </p>
+          </div>
+
+          <div class="space-y-2.5 text-xs text-white">
+            {
+              coreIncludes.map((item) => (
+                <div class="flex items-start gap-2.5">
+                  <Icon
+                    name="material-symbols:verified"
+                    class="size-[18px] text-brand-neon shrink-0 mt-0.5"
+                  />
+                  <span class="font-medium">{item}</span>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <a
+            class="w-full py-4 rounded-xl cta-gradient hover:brightness-110 text-white font-display font-semibold text-sm flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(124,92,252,0.45)] transition-all"
+            href="#agendamento"
+            data-plano="core"
+          >
+            <span>Consultar Plano Core</span>
+            <Icon name="material-symbols:arrow-forward" class="size-[18px]" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Pre-seleciona o plano no formulario quando o visitante clica no CTA de um card.
+  document.querySelectorAll<HTMLAnchorElement>('a[data-plano]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const select = document.querySelector<HTMLSelectElement>('#plano');
+      if (select && link.dataset.plano) select.value = link.dataset.plano;
+    });
+  });
+</script>

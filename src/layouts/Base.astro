@@ -1,0 +1,119 @@
+---
+import '@fontsource-variable/inter';
+import '@fontsource-variable/space-grotesk';
+import '../styles/global.css';
+
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE } from '../lib/site-config.js';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Adiciona noindex (ex.: paginas utilitarias). */
+  noindex?: boolean;
+}
+
+const {
+  title = SITE.title,
+  description = SITE.description,
+  noindex = false,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname.replace(/\.html$/, ''), Astro.site ?? SITE.url).href;
+---
+
+<!doctype html>
+<html lang={SITE.lang} class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <meta name="theme-color" content="#0b0c10" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:locale" content={SITE.locale} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL('/og-image.png', SITE.url).href} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL('/og-image.png', SITE.url).href} />
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'ProfessionalService',
+        name: SITE.name,
+        description: SITE.description,
+        url: SITE.url,
+        email: SITE.email,
+        telephone: `+${SITE.whatsappNumber}`,
+        areaServed: 'BR',
+        address: {
+          '@type': 'PostalAddress',
+          addressCountry: 'BR',
+          addressLocality: SITE.address.split('•')[0].trim(),
+        },
+      })}
+    />
+  </head>
+
+  <body class="min-h-screen bg-brand-base text-brand-text antialiased">
+    <a
+      href="#conteudo"
+      class="sr-only focus:not-sr-only focus:absolute focus:z-[60] focus:top-4 focus:left-4 focus:px-4 focus:py-2 focus:rounded-lg focus:bg-brand-purple focus:text-white focus:text-sm"
+    >
+      Pular para o conteúdo
+    </a>
+
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[550px] radial-top-glow pointer-events-none -z-10"></div>
+    <div class="fixed top-1/3 -right-32 w-[480px] h-[480px] bg-brand-purple/10 blur-[130px] rounded-full pointer-events-none -z-10 animate-glow-pulse"></div>
+
+    <Header />
+
+    <main id="conteudo" class="w-full">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <script>
+      const reveals = document.querySelectorAll<HTMLElement>('.reveal');
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -40px 0px' },
+        );
+
+        reveals.forEach((el) => {
+          if (el.getBoundingClientRect().top < window.innerHeight - 50) {
+            el.classList.add('active');
+          } else {
+            observer.observe(el);
+          }
+        });
+      } else {
+        reveals.forEach((el) => el.classList.add('active'));
+      }
+    </script>
+  </body>
+</html>

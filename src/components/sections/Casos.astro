@@ -1,0 +1,102 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const cases = [
+  {
+    tag: 'Design de Alto Padrão',
+    icon: 'material-symbols:chair',
+    title: 'Loja de Design & Decorativos',
+    challenge:
+      'Captação 100% dependente de alcance orgânico no Instagram, orçamentos perdidos por demora no retorno e faturamento instável mês a mês.',
+    solution:
+      'Implementação de ecossistema de atração de alta conversão aliado a fluxo automatizado de qualificação visual de portfólio.',
+    metric: '+90',
+    metricTitle: 'Empresas em fila de espera',
+    metricCaption: 'Demanda contínua aguardando atendimento qualificado',
+    delay: 'reveal-delay-1',
+  },
+  {
+    tag: 'Esportes & Lazer Náutico',
+    icon: 'material-symbols:surfing',
+    title: 'Escola de Kitesurf • Cabedelo',
+    challenge:
+      'Dependência de indicações boca a boca, fortes oscilações causadas pela sazonalidade de ventos e agenda ociosa fora de picos turísticos.',
+    solution:
+      'Engrenagem de captação geolocalizada e sistema automatizado de reagendamento e aviso imediato para dias de vento favorável.',
+    metric: '+6',
+    metricTitle: 'Aulas agendadas por semana, por instrutor',
+    metricCaption: 'Previsibilidade de receita independente de sazonalidade',
+    delay: 'reveal-delay-2',
+  },
+];
+---
+
+<section id="casos-reais" class="py-24 md:py-32 px-6 lg:px-10 relative">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#1b1c2b] border border-brand-lavender/20 mb-4">
+          <Icon name="material-symbols:task-alt" class="size-4 text-brand-neon" />
+          <span class="font-display text-[11px] uppercase tracking-[0.16em] text-brand-lavender font-semibold">
+            Resultados Validados em Campo
+          </span>
+        </div>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">
+          Casos Reais • Menos Teoria, Mais Caixa
+        </h2>
+      </div>
+      <p class="text-sm sm:text-base text-brand-muted max-w-md">
+        Veja como operações reais transformaram caos manual em máquinas previsíveis de vendas com a
+        metodologia Impera.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {
+        cases.map((item) => (
+          <div
+            class={`reveal ${item.delay} glass-card rounded-2xl p-8 flex flex-col justify-between hover:border-brand-lavender/40 transition-all duration-300`}
+          >
+            <div>
+              <div class="flex items-center justify-between gap-3 mb-6">
+                <span class="px-3 py-1 rounded-md bg-[#212338] text-brand-lavender font-display text-xs uppercase font-bold tracking-wider">
+                  {item.tag}
+                </span>
+                <Icon name={item.icon} class="size-6 text-brand-neon shrink-0" />
+              </div>
+
+              <h3 class="font-display font-bold text-2xl text-white mb-4">{item.title}</h3>
+
+              <div class="space-y-3 mb-6">
+                <div class="p-3.5 rounded-xl bg-brand-base border border-white/[0.05]">
+                  <span class="font-display text-[10px] uppercase tracking-wider text-red-400 font-bold block mb-1">
+                    O desafio inicial:
+                  </span>
+                  <p class="text-xs text-brand-muted leading-relaxed">{item.challenge}</p>
+                </div>
+                <div class="p-3.5 rounded-xl bg-brand-base border border-white/[0.05]">
+                  <span class="font-display text-[10px] uppercase tracking-wider text-brand-lavender font-bold block mb-1">
+                    Solução Lab:
+                  </span>
+                  <p class="text-xs text-brand-muted leading-relaxed">{item.solution}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-[#141624] border border-emerald-500/25 flex items-center gap-4">
+              <span class="font-display font-bold text-4xl text-emerald-400 shrink-0">
+                {item.metric}
+              </span>
+              <div>
+                <span class="font-display font-bold text-sm text-white block">
+                  {item.metricTitle}
+                </span>
+                <span class="text-xs text-brand-dim">{item.metricCaption}</span>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

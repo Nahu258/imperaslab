@@ -1,0 +1,50 @@
+---
+interface Props {
+  class?: string;
+  id: string;
+}
+const { class: className = 'h-11 w-auto', id } = Astro.props;
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 540 140"
+  class={`${className} overflow-visible`}
+  role="img"
+  aria-label="Impera's Lab"
+>
+  <defs>
+    <filter id={`${id}-glow`} x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="blur"></feGaussianBlur>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"></feComposite>
+    </filter>
+    <linearGradient id={`${id}-grad`} x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A4A1E8"></stop>
+      <stop offset="50%" stop-color="#7C5CFC"></stop>
+      <stop offset="100%" stop-color="#5D5FEF"></stop>
+    </linearGradient>
+  </defs>
+  <g transform="translate(10, 15)">
+    <circle cx="28" cy="25" r="16" fill="#F3F4F8" opacity="0.95"></circle>
+    <circle cx="68" cy="25" r="16" fill={`url(#${id}-grad)`} filter={`url(#${id}-glow)`}></circle>
+    <circle cx="68" cy="25" r="16" fill="#7C5CFC"></circle>
+    <circle cx="108" cy="25" r="16" fill="#383B65"></circle>
+    <circle cx="108" cy="25" r="14" fill="#1B1C2B" stroke="#9D80FF" stroke-width="2"></circle>
+  </g>
+  <text
+    x="10"
+    y="96"
+    font-family="'Space Grotesk Variable', 'Space Grotesk', sans-serif"
+    font-size="44"
+    font-weight="800"
+    fill="#FFFFFF"
+    letter-spacing="10">IMPERA'S</text>
+  <text
+    x="12"
+    y="126"
+    font-family="'Space Grotesk Variable', 'Space Grotesk', sans-serif"
+    font-size="22"
+    font-weight="600"
+    fill="#C3B5FD"
+    letter-spacing="14">LAB</text>
+</svg>

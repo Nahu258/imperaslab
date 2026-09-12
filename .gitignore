@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Production build output
+dist/
+
+# Astro cache
+.astro/
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+
+# Editor & AI folders
+.claude/
+.gemini/
+.idea/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+npm-debug.log*

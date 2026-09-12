@@ -1,0 +1,93 @@
+---
+import { Icon } from 'astro-icon/components';
+import Logo from './Logo.astro';
+import { NAV_LINKS } from '../lib/site-config.js';
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-white/[0.06]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
+    <a class="flex items-center gap-3.5 group" href="/" aria-label="Impera's Lab — página inicial">
+      <div class="h-11 w-auto flex items-center transition-transform duration-200 group-hover:scale-105">
+        <Logo id="header-logo" class="h-11 w-auto" />
+      </div>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-brand-muted" aria-label="Navegação principal">
+      {
+        NAV_LINKS.map((link) => (
+          <a class="hover:text-white transition-colors duration-200" href={link.href}>
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a
+        class="relative inline-flex items-center justify-center px-3.5 sm:px-5 py-2.5 rounded-lg text-xs md:text-sm font-semibold text-white cta-gradient hover:brightness-110 shadow-[0_0_20px_rgba(124,92,252,0.35)] transition-all duration-300 whitespace-nowrap"
+        href="/#agendamento"
+      >
+        <span class="relative z-10 flex items-center gap-1.5">
+          <span class="hidden sm:inline">Agendar Diagnóstico</span>
+          <span class="sm:hidden">Agendar</span>
+          <Icon name="material-symbols:arrow-forward" class="size-[17px]" />
+        </span>
+      </a>
+
+      <button
+        type="button"
+        id="mobile-menu-toggle"
+        class="lg:hidden w-10 h-10 rounded-lg border border-white/10 bg-brand-elevated text-white flex items-center justify-center"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <Icon name="material-symbols:menu" class="size-6" id="mobile-menu-icon-open" />
+        <Icon name="material-symbols:close" class="size-6 hidden" id="mobile-menu-icon-close" />
+      </button>
+    </div>
+  </div>
+
+  <nav
+    id="mobile-menu"
+    class="hidden lg:hidden border-t border-white/[0.06] bg-[#0b0c10]/95 backdrop-blur-xl px-6 py-5"
+    aria-label="Navegação móvel"
+  >
+    <div class="flex flex-col gap-1">
+      {
+        NAV_LINKS.map((link) => (
+          <a
+            class="py-2.5 text-sm font-medium text-brand-muted hover:text-white transition-colors"
+            href={link.href}
+            data-mobile-link
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </div>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('mobile-menu-icon-open');
+  const iconClose = document.getElementById('mobile-menu-icon-close');
+
+  const setOpen = (open: boolean) => {
+    menu?.classList.toggle('hidden', !open);
+    iconOpen?.classList.toggle('hidden', open);
+    iconClose?.classList.toggle('hidden', !open);
+    toggle?.setAttribute('aria-expanded', String(open));
+    toggle?.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+  };
+
+  toggle?.addEventListener('click', () => {
+    setOpen(menu?.classList.contains('hidden') ?? true);
+  });
+
+  document.querySelectorAll('[data-mobile-link]').forEach((link) => {
+    link.addEventListener('click', () => setOpen(false));
+  });
+</script>

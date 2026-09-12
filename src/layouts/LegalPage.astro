@@ -1,0 +1,76 @@
+---
+import { Icon } from 'astro-icon/components';
+import Base from './Base.astro';
+import { SITE } from '../lib/site-config.js';
+
+interface Props {
+  title: string;
+  description: string;
+  heading: string;
+  eyebrow: string;
+  intro: string;
+}
+
+const { title, description, heading, eyebrow, intro } = Astro.props;
+---
+
+<Base title={title} description={description}>
+  <section class="pt-36 md:pt-44 pb-12 px-6 lg:px-10">
+    <div class="max-w-3xl mx-auto">
+      <a
+        class="inline-flex items-center gap-1.5 text-xs text-brand-muted hover:text-white transition-colors mb-8"
+        href="/"
+      >
+        <Icon name="material-symbols:arrow-back" class="size-4" />
+        Voltar para a página inicial
+      </a>
+
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#1b1c2b] border border-brand-lavender/20 mb-5">
+        <Icon name="material-symbols:shield" class="size-4 text-brand-neon" />
+        <span class="font-display text-[11px] uppercase tracking-[0.16em] text-brand-lavender font-semibold">
+          {eyebrow}
+        </span>
+      </div>
+
+      <h1 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
+        {heading}
+      </h1>
+
+      <p class="mt-5 text-sm sm:text-base text-brand-muted leading-relaxed">{intro}</p>
+
+      <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-brand-faint">
+        <span class="inline-flex items-center gap-1.5">
+          <Icon name="material-symbols:update" class="size-4" />
+          Última atualização: {SITE.legalUpdatedAt}
+        </span>
+        <span class="inline-flex items-center gap-1.5">
+          <Icon name="material-symbols:mail" class="size-4" />
+          {SITE.privacyEmail}
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-24 md:pb-32 px-6 lg:px-10">
+    <div class="max-w-3xl mx-auto">
+      <div class="glass-card rounded-2xl p-6 sm:p-10">
+        <article class="legal-prose">
+          <slot />
+        </article>
+      </div>
+
+      <div class="mt-8 glass-card rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-brand-muted text-center sm:text-left">
+          Dúvidas sobre este documento? Fale com o nosso time.
+        </p>
+        <a
+          class="px-5 py-3 rounded-xl cta-gradient hover:brightness-110 text-white font-display font-semibold text-sm inline-flex items-center gap-2 transition-all whitespace-nowrap"
+          href={`mailto:${SITE.privacyEmail}`}
+        >
+          <Icon name="material-symbols:mail" class="size-[18px]" />
+          {SITE.privacyEmail}
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>

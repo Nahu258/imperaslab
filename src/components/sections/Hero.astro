@@ -1,0 +1,89 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const metrics = [
+  {
+    icon: 'material-symbols:bolt',
+    tone: 'text-brand-neon bg-brand-purple/15 border-brand-purple/30',
+    title: 'Setup em 24h',
+    caption: 'Pós-alinhamento de briefing executivo',
+  },
+  {
+    icon: 'material-symbols:trending-up',
+    tone: 'text-emerald-400 bg-emerald-500/15 border-emerald-500/30',
+    title: '+90 Empresas',
+    caption: 'Em lista de espera gerada',
+  },
+  {
+    icon: 'material-symbols:tune',
+    tone: 'text-brand-lavender bg-brand-lavender/15 border-brand-lavender/30',
+    title: 'Tempo Real',
+    caption: 'Sem fórmulas prontas de prateleira',
+  },
+];
+---
+
+<section class="relative pt-36 md:pt-44 pb-24 md:pb-32 px-6 lg:px-10 overflow-hidden">
+  <div class="max-w-6xl mx-auto flex flex-col items-center text-center">
+    <div class="reveal inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#181928]/90 border border-brand-lavender/20 shadow-[0_0_20px_rgba(124,92,252,0.12)] mb-8">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-neon opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-neon"></span>
+      </span>
+      <span class="font-display text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-brand-lavender">
+        Assessoria de Estruturação Digital & Inteligência de Negócios
+      </span>
+    </div>
+
+    <h1 class="reveal reveal-delay-1 font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white tracking-tight leading-[1.08] max-w-5xl">
+      Esforço Sem <span
+        class="bg-gradient-to-r from-brand-lavender via-brand-neon to-brand-purple bg-clip-text text-transparent text-glow"
+        >Inteligência de Dados</span
+      > Não Gera Escala.
+    </h1>
+
+    <p class="reveal reveal-delay-2 mt-7 text-base sm:text-lg md:text-xl text-brand-muted max-w-3xl leading-relaxed">
+      Transformamos o seu operacional sufocado em um ecossistema digital previsível, profissional e
+      lucrativo. Chega de depender apenas do botão “impulsionar”.
+    </p>
+
+    <div class="reveal reveal-delay-3 mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+      <div class="flex flex-col items-center w-full sm:w-auto">
+        <a
+          class="w-full sm:w-auto px-8 py-4 rounded-xl font-display font-semibold text-sm md:text-base text-white cta-gradient hover:brightness-110 shadow-[0_0_35px_rgba(124,92,252,0.45)] flex items-center justify-center gap-2.5 transition-all duration-300"
+          href="#agendamento"
+        >
+          <span>Agendar Diagnóstico Gratuito</span>
+          <Icon name="material-symbols:chat" class="size-5" />
+        </a>
+        <span class="text-xs text-[#787c94] mt-2.5">
+          Sessão estratégica de 30 min • Vagas limitadas por mês
+        </span>
+      </div>
+
+      <a
+        class="w-full sm:w-auto px-7 py-4 rounded-xl font-display font-medium text-sm md:text-base text-white/90 bg-brand-elevated hover:bg-[#1f2136] border border-white/10 hover:border-brand-lavender/30 flex items-center justify-center gap-2 transition-all duration-200"
+        href="#planos"
+      >
+        <span>Conhecer o Ecossistema Core</span>
+        <Icon name="material-symbols:arrow-downward" class="size-5 text-brand-lavender" />
+      </a>
+    </div>
+
+    <div class="reveal reveal-delay-4 mt-16 sm:mt-20 w-full max-w-4xl grid grid-cols-1 md:grid-cols-3 gap-4">
+      {
+        metrics.map((metric) => (
+          <div class="glass-card rounded-2xl p-5 flex items-center gap-4 text-left hover:border-brand-neon/40 transition-colors">
+            <div class={`w-12 h-12 rounded-xl border flex items-center justify-center shrink-0 ${metric.tone}`}>
+              <Icon name={metric.icon} class="size-6" />
+            </div>
+            <div>
+              <div class="font-display font-bold text-xl text-white">{metric.title}</div>
+              <div class="text-xs text-brand-dim">{metric.caption}</div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

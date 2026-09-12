@@ -1,0 +1,28 @@
+---
+import { Icon } from 'astro-icon/components';
+import Base from '../layouts/Base.astro';
+import { SITE } from '../lib/site-config.js';
+---
+
+<Base title={`Página não encontrada • ${SITE.name}`} description="A página que você procura não existe ou foi movida." noindex>
+  <section class="min-h-[70vh] flex items-center justify-center px-6 lg:px-10 pt-36 pb-24">
+    <div class="max-w-lg text-center">
+      <span class="font-display font-bold text-7xl sm:text-8xl bg-gradient-to-r from-brand-lavender via-brand-neon to-brand-purple bg-clip-text text-transparent text-glow">
+        404
+      </span>
+      <h1 class="mt-6 font-display font-bold text-2xl sm:text-3xl text-white tracking-tight">
+        Rota não encontrada no Lab
+      </h1>
+      <p class="mt-4 text-sm sm:text-base text-brand-muted leading-relaxed">
+        A página que você procura não existe, foi movida ou o link está desatualizado.
+      </p>
+      <a
+        class="mt-8 inline-flex items-center gap-2 px-6 py-3.5 rounded-xl cta-gradient hover:brightness-110 text-white font-display font-semibold text-sm shadow-[0_0_25px_rgba(124,92,252,0.4)] transition-all"
+        href="/"
+      >
+        <Icon name="material-symbols:arrow-back" class="size-[18px]" />
+        Voltar para a página inicial
+      </a>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,266 @@
+---
+import LegalPage from '../layouts/LegalPage.astro';
+import { SITE } from '../lib/site-config.js';
+---
+
+<LegalPage
+  title={`Política de Privacidade • ${SITE.name}`}
+  description="Como a Impera's Lab coleta, utiliza, armazena e protege os dados pessoais dos visitantes e clientes, em conformidade com a LGPD (Lei nº 13.709/2018)."
+  eyebrow="Proteção de Dados & LGPD"
+  heading="Política de Privacidade"
+  intro="Esta Política explica, de forma transparente, quais dados pessoais coletamos, por que coletamos, como utilizamos e quais são os seus direitos como titular, nos termos da Lei Geral de Proteção de Dados (Lei nº 13.709/2018)."
+>
+  <h2 id="controlador">1. Quem é o controlador dos seus dados</h2>
+  <p>
+    O controlador dos dados pessoais tratados por meio deste site é <strong>{SITE.legalName}</strong>,
+    inscrita no CNPJ sob o nº {SITE.cnpj}, com sede em {SITE.address}, doravante denominada
+    "Impera's Lab", "nós" ou "Lab".
+  </p>
+  <p>
+    Canal oficial para assuntos de privacidade e proteção de dados (Encarregado/DPO):
+    <a href={`mailto:${SITE.privacyEmail}`}>{SITE.privacyEmail}</a>.
+  </p>
+
+  <h2 id="escopo">2. Escopo desta Política</h2>
+  <p>
+    Esta Política aplica-se ao site <a href={SITE.url}>{SITE.url}</a> e a todos os seus subdomínios,
+    formulários, páginas de captação, integrações de atendimento (incluindo WhatsApp) e às
+    aplicações que mantemos nas plataformas da Meta (Facebook, Instagram, WhatsApp Business e
+    Messenger).
+  </p>
+
+  <h2 id="dados">3. Dados pessoais que coletamos</h2>
+
+  <h3>3.1. Dados fornecidos diretamente por você</h3>
+  <p>
+    Quando você preenche o formulário de diagnóstico ou entra em contato conosco, coletamos:
+  </p>
+  <ul>
+    <li><strong>Nome completo</strong> — para identificação e tratamento personalizado.</li>
+    <li><strong>Número de WhatsApp</strong> — para retorno comercial e agendamento da sessão.</li>
+    <li><strong>Endereço de e-mail</strong> — para envio de propostas, materiais e confirmações.</li>
+    <li><strong>Empresa e segmento de atuação</strong> — para qualificação do atendimento.</li>
+    <li><strong>Plano de interesse e mensagem livre</strong> — para dimensionar o escopo do projeto.</li>
+  </ul>
+
+  <h3>3.2. Dados coletados automaticamente</h3>
+  <ul>
+    <li>
+      <strong>Dados de navegação e origem</strong>: endereço IP, tipo de navegador (user agent),
+      páginas visitadas, página de origem (referrer) e parâmetros de campanha (UTM, gclid, fbclid).
+    </li>
+    <li>
+      <strong>Data e hora do envio</strong> do formulário, utilizada como registro de consentimento.
+    </li>
+  </ul>
+  <p>
+    Não coletamos dados pessoais sensíveis (origem racial, convicção religiosa, opinião política,
+    dados de saúde, biometria, entre outros) e não solicitamos, por este site, dados de cartão de
+    crédito, senhas ou documentos de identificação.
+  </p>
+
+  <h2 id="finalidades">4. Para que utilizamos seus dados</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Finalidade</th>
+        <th>Base legal (LGPD)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Responder solicitações de diagnóstico, orçamento e contato comercial</td>
+        <td>Consentimento (art. 7º, I) e procedimentos preliminares de contrato (art. 7º, V)</td>
+      </tr>
+      <tr>
+        <td>Enviar propostas, materiais e comunicações sobre nossos serviços</td>
+        <td>Consentimento (art. 7º, I)</td>
+      </tr>
+      <tr>
+        <td>Executar contratos, emitir notas fiscais e cumprir obrigações legais</td>
+        <td>Execução de contrato (art. 7º, V) e obrigação legal (art. 7º, II)</td>
+      </tr>
+      <tr>
+        <td>Mensurar campanhas, prevenir fraudes e melhorar o site</td>
+        <td>Legítimo interesse (art. 7º, IX)</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    <strong>Não vendemos os seus dados pessoais</strong> e não os utilizamos para finalidades
+    incompatíveis com as descritas acima.
+  </p>
+
+  <h2 id="compartilhamento">5. Com quem compartilhamos seus dados</h2>
+  <p>
+    Compartilhamos dados apenas na medida necessária para operar o atendimento, com operadores que
+    atuam sob nossas instruções e obrigações de confidencialidade:
+  </p>
+  <ul>
+    <li>
+      <strong>Infraestrutura e automação</strong>: nosso servidor (VPS) e a plataforma de automação
+      de fluxos que recebe os formulários, ambos sob nosso controle.
+    </li>
+    <li>
+      <strong>Comunicação</strong>: provedores de e-mail e o WhatsApp (Meta Platforms), quando você
+      opta por falar conosco por esse canal.
+    </li>
+    <li>
+      <strong>CRM e ferramentas de gestão comercial</strong> utilizadas para acompanhar o
+      atendimento.
+    </li>
+    <li>
+      <strong>Plataformas de anúncios</strong> (Meta Ads, Google Ads), para mensuração de campanhas,
+      quando aplicável.
+    </li>
+    <li>
+      <strong>Autoridades públicas</strong>, quando houver requisição legal, judicial ou
+      regulatória.
+    </li>
+  </ul>
+
+  <h3>5.1. Transferência internacional</h3>
+  <p>
+    Alguns dos provedores citados podem armazenar dados em servidores fora do Brasil. Nesses casos, a
+    transferência ocorre nos termos do art. 33 da LGPD, mediante cláusulas contratuais e garantias de
+    proteção compatíveis com a legislação brasileira.
+  </p>
+
+  <h2 id="meta">6. Plataformas da Meta, pixels e mensuração</h2>
+  <p>
+    Utilizamos ferramentas de mensuração das plataformas Meta (Facebook/Instagram) e Google para
+    entender a origem das visitas e a efetividade dos nossos anúncios. Essas ferramentas podem
+    registrar eventos de navegação e associá-los a identificadores publicitários.
+  </p>
+  <ul>
+    <li>
+      Quando você interage conosco pelo <strong>WhatsApp</strong>, o conteúdo das mensagens é tratado
+      também pela Meta, conforme a política de privacidade do WhatsApp.
+    </li>
+    <li>
+      Não enviamos às plataformas de anúncios dados sensíveis, conteúdo de mensagens ou informações
+      que permitam identificar diretamente o usuário sem base legal adequada.
+    </li>
+    <li>
+      Você pode gerenciar preferências de anúncios diretamente nas configurações da sua conta Meta ou
+      Google, além dos controles do seu navegador.
+    </li>
+  </ul>
+
+  <h2 id="cookies">7. Cookies e tecnologias semelhantes</h2>
+  <p>
+    Este site utiliza um conjunto mínimo de cookies e tecnologias equivalentes:
+  </p>
+  <ul>
+    <li>
+      <strong>Essenciais</strong>: necessários para o funcionamento do site e para a segurança do
+      envio de formulários.
+    </li>
+    <li>
+      <strong>Analíticos e de marketing</strong>: quando ativos, ajudam a medir o desempenho de
+      campanhas e a melhorar a experiência de navegação.
+    </li>
+  </ul>
+  <p>
+    Você pode bloquear ou excluir cookies nas configurações do seu navegador. A desativação de
+    cookies essenciais pode comprometer o funcionamento de partes do site.
+  </p>
+
+  <h2 id="retencao">8. Por quanto tempo guardamos seus dados</h2>
+  <ul>
+    <li>
+      <strong>Leads não convertidos</strong>: até 24 meses após o último contato, salvo revogação
+      anterior do consentimento.
+    </li>
+    <li>
+      <strong>Clientes</strong>: durante a vigência do contrato e, após o encerramento, pelos prazos
+      legais aplicáveis (incluindo o prazo fiscal de 5 anos).
+    </li>
+    <li>
+      <strong>Registros de acesso</strong>: pelo prazo mínimo de 6 meses, conforme o Marco Civil da
+      Internet (Lei nº 12.965/2014).
+    </li>
+  </ul>
+  <p>Encerrados os prazos, os dados são eliminados ou anonimizados de forma segura.</p>
+
+  <h2 id="seguranca">9. Segurança da informação</h2>
+  <p>
+    Adotamos medidas técnicas e administrativas para proteger os dados pessoais contra acessos não
+    autorizados, perda, alteração ou divulgação indevida, entre elas:
+  </p>
+  <ul>
+    <li>Tráfego criptografado via HTTPS/TLS em todo o site e nos endpoints de formulário.</li>
+    <li>Controle de acesso por credenciais individuais e princípio do menor privilégio.</li>
+    <li>Servidores com atualizações de segurança e firewall ativo.</li>
+    <li>Backups periódicos e segregação de ambientes.</li>
+  </ul>
+  <p>
+    Nenhum sistema é totalmente imune a incidentes. Caso ocorra um incidente de segurança relevante,
+    comunicaremos os titulares afetados e a Autoridade Nacional de Proteção de Dados (ANPD) nos
+    termos do art. 48 da LGPD.
+  </p>
+
+  <h2 id="direitos">10. Seus direitos como titular</h2>
+  <p>Nos termos do art. 18 da LGPD, você pode solicitar a qualquer momento:</p>
+  <ul>
+    <li>Confirmação da existência de tratamento e acesso aos seus dados;</li>
+    <li>Correção de dados incompletos, inexatos ou desatualizados;</li>
+    <li>Anonimização, bloqueio ou eliminação de dados desnecessários ou excessivos;</li>
+    <li>Portabilidade dos dados a outro fornecedor de serviço;</li>
+    <li>Informação sobre entidades com as quais compartilhamos seus dados;</li>
+    <li>Revogação do consentimento e eliminação dos dados tratados com base nele;</li>
+    <li>Oposição a tratamento realizado com fundamento em legítimo interesse.</li>
+  </ul>
+  <p>
+    Para exercer qualquer um desses direitos, escreva para
+    <a href={`mailto:${SITE.privacyEmail}`}>{SITE.privacyEmail}</a>. Responderemos em até 15 dias
+    corridos, podendo solicitar informações adicionais para confirmar a sua identidade.
+  </p>
+
+  <h2 id="exclusao">11. Como solicitar a exclusão dos seus dados</h2>
+  <p>
+    Para pedir a exclusão completa dos seus dados pessoais das nossas bases — incluindo dados
+    originados de aplicações vinculadas às plataformas da Meta —, envie um e-mail para
+    <a href={`mailto:${SITE.privacyEmail}`}>{SITE.privacyEmail}</a> com o assunto
+    <strong>"Exclusão de dados"</strong>, informando:
+  </p>
+  <ul>
+    <li>Nome completo utilizado no contato;</li>
+    <li>E-mail e/ou número de WhatsApp cadastrado;</li>
+    <li>Canal pelo qual o contato foi realizado (site, Instagram, Facebook, WhatsApp).</li>
+  </ul>
+  <p>
+    A exclusão é processada em até <strong>15 dias corridos</strong>, ressalvados os dados que
+    precisamos manter por obrigação legal ou para exercício regular de direitos em processos.
+    Confirmaremos a conclusão por e-mail.
+  </p>
+
+  <h2 id="menores">12. Crianças e adolescentes</h2>
+  <p>
+    Nossos serviços são destinados exclusivamente a pessoas jurídicas e a profissionais maiores de 18
+    anos. Não coletamos intencionalmente dados de crianças ou adolescentes. Caso identifiquemos esse
+    tipo de coleta, os dados serão eliminados imediatamente.
+  </p>
+
+  <h2 id="terceiros">13. Links para sites de terceiros</h2>
+  <p>
+    Este site pode conter links para plataformas de terceiros (WhatsApp, Instagram, Google, entre
+    outros). Não nos responsabilizamos pelas práticas de privacidade desses serviços; recomendamos a
+    leitura das respectivas políticas.
+  </p>
+
+  <h2 id="alteracoes">14. Alterações desta Política</h2>
+  <p>
+    Podemos atualizar esta Política para refletir mudanças legais, técnicas ou de negócio. A versão
+    vigente estará sempre publicada nesta página, com a data da última atualização indicada no topo.
+    Alterações relevantes serão comunicadas pelos canais de contato cadastrados.
+  </p>
+
+  <h2 id="contato">15. Contato</h2>
+  <p>
+    Dúvidas, solicitações ou reclamações sobre privacidade podem ser enviadas para
+    <a href={`mailto:${SITE.privacyEmail}`}>{SITE.privacyEmail}</a> ou para
+    <a href={`mailto:${SITE.email}`}>{SITE.email}</a>. Você também pode apresentar reclamação
+    diretamente à Autoridade Nacional de Proteção de Dados (ANPD).
+  </p>
+</LegalPage>
